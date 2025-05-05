@@ -222,11 +222,9 @@ footer {
 }
 
 .newsletter {
-    background-color: var(--blanco);
+    background-color: var(--beis);
     padding: 2rem;
     margin: 2rem 0;
-    border: 1px solid var(--ocre);
-    border-radius: 4px;
 }
 
 /* Estilos para formularios */
@@ -409,3 +407,46 @@ input:invalid {
 input:valid {
     border-color: #4caf50;
 }
+
+/*titulo nosotros*/
+.titulo-doble-linea {
+    text-align: center;
+    border-top: 3px solid #e2b646;
+    border-bottom: 3px solid #e2b646;
+    padding: 20px 0;
+    margin-bottom: 40px;
+  }
+  
+  .titulo-doble-linea h2 {
+    font-size: 2.5em;
+    color: #f5a623; 
+    margin: 0;
+    font-weight: 900;
+  }
+  
+  .titulo-doble-linea p {
+    font-size: 1.1em;
+    color: #333;
+    margin: 10px 0 0 0;
+  }
+  /*estilos iconos nosotros*/
+  .club-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    gap: 20px;
+  }
+  
+  .club-item img.icono {
+    width: 36px;
+    height: auto;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  
+  .club-item h4 {
+    font-weight: 900;
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+  }
+  
