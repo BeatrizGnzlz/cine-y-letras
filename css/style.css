@@ -1,0 +1,411 @@
+/* Reset y modelo de caja alternativo */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de color */
+:root {
+    --negro: rgb(34, 34, 34);
+    --naranja: rgb(233, 164, 0);
+    --rojo: rgb(214, 40, 40);
+    --beis: rgb(242, 239, 234);
+    --ocre: rgb(201, 140, 0);
+    --blanco: rgb(255, 255, 255);
+}
+
+/* Tipografía */
+body {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    background-color: var(--beis);
+    line-height: 1.6;
+    color: var(--negro);
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    padding: 1.5rem 3rem;
+    border-bottom: 2px solid var(--ocre);
+    background-color: var(--beis);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.logo a {
+    color: var(--negro);
+    text-decoration: none;
+}
+
+.logo .amp {
+    color: var(--ocre);
+}
+
+/* Menú principal */
+.main-nav {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.main-nav a {
+    font-weight: 400;
+    color: var(--negro);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--ocre);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav .active::after {
+    transform: scaleX(1);
+}
+
+.main-nav .active {
+    font-weight: 700;
+}
+
+/* HERO SECTION */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: var(--negro);
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtagline {
+    font-style: italic;
+}
+
+/* Estilos específicos para la página de inicio */
+body.home {
+    background: url('../img/bg-home.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--blanco);
+}
+
+body.home .hero h2,
+body.home .tagline,
+body.home .subtagline {
+    color: var(--blanco);
+    text-shadow: 1px 1px 2px var(--negro);
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    padding: 1.5rem 3rem;
+    border-top: 2px solid var(--ocre);
+    background-color: var(--beis);
+    margin-top: 2rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.footer-nav a {
+    color: var(--negro);
+    text-decoration: none;
+    position: relative;
+}
+
+.footer-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--ocre);
+}
+
+.footer-nav a:hover {
+    color: var(--ocre);
+}
+
+.credits {
+    font-size: 0.9rem;
+}
+
+/* Estilos para la página Nosotros */
+.about-section h2,
+.about-section h3 {
+    color: var(--naranja);
+    font-weight: 900;
+    margin: 1.5rem 0;
+}
+
+.subtitle {
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: var(--negro);
+}
+
+.custom-list {
+    list-style-type: none;
+    margin: 1.5rem 0;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.custom-list li::before {
+    content: "■";
+    color: var(--ocre);
+    position: absolute;
+    left: 0;
+}
+
+.numbered-list {
+    list-style-type: none;
+    counter-reset: custom-counter;
+    margin: 1.5rem 0;
+}
+
+.numbered-list li {
+    counter-increment: custom-counter;
+    margin-bottom: 1rem;
+    padding-left: 2.5rem;
+    position: relative;
+}
+
+.numbered-list li::before {
+    content: counter(custom-counter);
+    color: var(--naranja);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.newsletter {
+    background-color: var(--blanco);
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 1px solid var(--ocre);
+    border-radius: 4px;
+}
+
+/* Estilos para formularios */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--negro);
+    background-color: var(--blanco);
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 0 3px var(--ocre);
+    outline: none;
+}
+
+.checkbox-group,
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checkbox-group label,
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"],
+.radio-group input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.btn-submit {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Fira Sans', sans-serif;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: rgb(180, 30, 30);
+}
+
+.required {
+    color: var(--rojo);
+}
+
+.required-note {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    color: var(--negro);
+}
+
+/* Estilos para la tabla de actividades */
+.schedule {
+    margin: 3rem 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid var(--negro);
+}
+
+th {
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-weight: 700;
+}
+
+.sessions {
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-weight: 700;
+    text-align: center;
+}
+
+.note {
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.note a {
+    color: var(--rojo);
+    text-decoration: none;
+}
+
+.note a:hover {
+    color: var(--ocre);
+}
+
+/* Estilos para el formulario de socio */
+.membership-form fieldset {
+    border: 1px solid var(--ocre);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+}
+
+.membership-form legend {
+    padding: 0 0.5rem;
+    font-weight: 700;
+    color: var(--naranja);
+}
+
+.legal-notice {
+    background-color: var(--blanco);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid var(--ocre);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.legal-notice a {
+    color: var(--rojo);
+    text-decoration: none;
+}
+
+.legal-notice a:hover {
+    color: var(--ocre);
+}
+
+/* Clases de utilidad */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Validación de formularios */
+input:invalid {
+    border-color: #ff0000;
+}
+
+input:valid {
+    border-color: #4caf50;
+}
