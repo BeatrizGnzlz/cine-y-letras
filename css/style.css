@@ -113,7 +113,7 @@ header {
     font-style: italic;
 }
 
-/* Estilos específicos para la página de inicio */
+/* estilos index */
 body.home {
     background: url('../img/bg-home.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -167,7 +167,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Estilos para la página Nosotros */
+/* Estilos Nosotros */
 .about-section h2,
 .about-section h3 {
     color: var(--naranja);
@@ -306,7 +306,7 @@ footer {
     color: var(--negro);
 }
 
-/* Estilos para la tabla de actividades */
+/* Estilos actividades */
 .schedule {
     margin: 3rem 0;
 }
@@ -354,7 +354,7 @@ th {
     color: var(--ocre);
 }
 
-/* Estilos para el formulario de socio */
+/* Estilos formulario de socio */
 .membership-form fieldset {
     border: 1px solid var(--ocre);
     padding: 1.5rem;
@@ -449,4 +449,30 @@ input:valid {
     margin: 0 0 5px 0;
     font-size: 1.2em;
   }
+  
+/*titulo nosotros*/
+.about-section h3,
+main.about-section h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--naranja);
+}
+
+/* sangría */
+.indentado {
+    margin-left: 3rem;
+}
+
+/*correo footer*/
+footer a[href^="mailto:"] {
+    color: var(--rojo);
+    text-decoration: none;
+}
+
+footer a[href^="mailto:"]:hover {
+    color: var(--ocre);
+}
+
   
