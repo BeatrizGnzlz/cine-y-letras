@@ -360,12 +360,15 @@ th {
     padding: 1.5rem;
     margin-bottom: 2rem;
     border-radius: 4px;
+    background-color: var(--blanco);
 }
 
 .membership-form legend {
     padding: 0 0.5rem;
     font-weight: 700;
     color: var(--naranja);
+    border: 1px solid var(--ocre);
+    background-color: var(--blanco);
 }
 
 .legal-notice {
@@ -408,71 +411,259 @@ input:valid {
     border-color: #4caf50;
 }
 
-/*titulo nosotros*/
-.titulo-doble-linea {
-    text-align: center;
-    border-top: 3px solid #e2b646;
-    border-bottom: 3px solid #e2b646;
-    padding: 20px 0;
-    margin-bottom: 40px;
-  }
-  
-  .titulo-doble-linea h2 {
-    font-size: 2.5em;
-    color: #f5a623; 
-    margin: 0;
+
+/* ESTILOS PÁGINA NOSOTROS */
+/* Estructura principal */
+.about-article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Títulos */
+.article-title {
     font-weight: 900;
-  }
-  
-  .titulo-doble-linea p {
-    font-size: 1.1em;
-    color: #333;
-    margin: 10px 0 0 0;
-  }
-  /*estilos iconos nosotros*/
-  .club-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-    gap: 20px;
-  }
-  
-  .club-item img.icono {
-    width: 36px;
-    height: auto;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
-  
-  .club-item h4 {
-    font-weight: 900;
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-  }
-  
-/*titulo nosotros*/
-.about-section h3,
-main.about-section h3 {
-    font-size: 1.8rem;
-    font-weight: 900;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
     color: var(--naranja);
+    margin-bottom: 0.5rem;
 }
 
-/* sangría */
-.indentado {
-    margin-left: 3rem;
+.article-subtitle {
+    font-style: italic;
+    color: var(--negro);
+    margin-bottom: 2rem;
 }
 
-/*correo footer*/
-footer a[href^="mailto:"] {
-    color: var(--rojo);
+.section-title {
+    font-weight: 900;
+    color: var(--naranja);
+    margin: 2rem 0 1rem;
+    font-size: 1.8rem;
+}
+
+/* Párrafos con sangría */
+.section-with-indent p,
+.how-it-works li p {
+    text-indent: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Listas */
+.custom-list {
+    list-style-type: none;
+    margin: 1.5rem 0;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.custom-list li::before {
+    content: "■";
+    color: var(--ocre);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.numbered-list {
+    list-style-type: none;
+    counter-reset: section-counter;
+    margin: 2rem 0;
+}
+
+.numbered-list li {
+    counter-increment: section-counter;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.numbered-list li::before {
+    content: counter(section-counter);
+    color: var(--naranja);
+    font-weight: 900;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Formulario de newsletter */
+.newsletter-section {
+    background-color: var(--blanco);
+    padding: 2rem;
+    margin: 3rem 0;
+    border: 1px solid var(--ocre);
+    border-radius: 8px;
+}
+
+.newsletter-title {
+    color: var(--naranja);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter-desc {
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+    margin-top: 1.5rem;
+}
+
+/* Enlaces */
+.email-link {
+    color: var(--rojo) !important;
     text-decoration: none;
 }
 
-footer a[href^="mailto:"]:hover {
+.email-link:hover {
+    color: var(--ocre) !important;
+}
+
+.privacy-link {
+    color: var(--rojo);
+}
+
+.privacy-link:hover {
     color: var(--ocre);
 }
 
+/* Botón */
+.btn-submit {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #c53030;
+}
+
+/* Contacto */
+.contact-address {
+    font-style: normal;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+
+/*intento para el h2 de las páginas*/
+h2 {
+    position: relative;
+    text-align: center;
+    font-size: 2em;
+    margin: 2rem 0;
+    padding: 1rem 0;
+  }
+  
+  h2::before,
+  h2::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background-color: var(--naranja);
+    width: 100%;
+    position: absolute;
+    left: 0;
+  }
+  
+  h2::before {
+    top: 0;
+  }
+  
+  h2::after {
+    bottom: 0;
+  }
+h2 {
+  position: relative;
+  text-align: center;
+  font-size: 2em;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+h2::before,
+h2::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background-color: var(--naranja);
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+h2::before {
+  top: 0;
+}
+
+h2::after {
+  bottom: 0;
+}
+ h2 {
+  position: relative;
+  text-align: center;
+  font-size: 2em;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+h2::before,
+h2::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background-color: var(--naranja); 
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+h2::before {
+  top: 0;
+}
+
+h2::after {
+  bottom: 0;
+}
+
+h2 {
+    position: relative;
+    text-align: center;
+    font-size: 2em;
+    margin: 2rem 0;
+    padding: 1rem 0;
+  }
+  
+  h2::before,
+  h2::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background-color: var(--naranja); 
+    width: 100%;
+    position: absolute;
+    left: 0;
+  }
+  
+  h2::before {
+    top: 0;
+  }
+  
+  h2::after {
+    bottom: 0;
+  }
+  
+ 
   
