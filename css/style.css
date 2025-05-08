@@ -22,7 +22,7 @@ body {
     background-color: var(--beis);
     line-height: 1.6;
     color: var(--negro);
-}
+ }
 
 /* Contenedor principal */
 .container {
@@ -38,6 +38,7 @@ header {
     padding: 1.5rem 3rem;
     border-bottom: 2px solid var(--ocre);
     background-color: var(--beis);
+    text-align: center; /*????*/
 }
 
 .logo {
@@ -56,12 +57,19 @@ header {
 }
 
 /* Menú principal */
+/* Contenedor principal del menú (corregido) */
 .main-nav {
-    display: flex;
-    gap: 2rem;
+    display: flex;                  /* Cambia inline-block por flex */
+    justify-content: center;        /* Centra horizontalmente */
+    align-items: center;            /* Centra verticalmente */
+    gap: 2rem;                      /* Espacio entre elementos */
     list-style: none;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px 0;
 }
 
+/* Elementos del menú (enlaces) */
 .main-nav a {
     font-weight: 400;
     color: var(--negro);
@@ -70,7 +78,18 @@ header {
     padding-bottom: 0.5rem;
 }
 
-.main-nav a::after {
+/* Separadores verticales ocre (versión optimizada) */
+.main-nav a:not(:last-child)::after {
+    content: "|";                   /* Barra vertical como separador */
+    margin: 0 1rem;                 /* Espacio alrededor */
+    color: var(--ocre);             /* Color ocre */
+    font-weight: 300;               /* Grosor fino */
+    position: relative;             /* Para ajustar posición */
+    left: 1rem;                     /* Ajuste fino de posición */
+}
+
+/* Efecto hover en enlaces (línea inferior ocre) */
+.main-nav a::before {              /* Cambiamos ::after por ::before para no interferir con el separador */
     content: "";
     position: absolute;
     bottom: 0;
@@ -82,49 +101,36 @@ header {
     transition: transform 0.3s ease;
 }
 
-.main-nav a:hover::after,
-.main-nav .active::after {
+.main-nav a:hover::before,
+.main-nav .active::before {
     transform: scaleX(1);
 }
 
+/* Enlace*/
 .main-nav .active {
     font-weight: 700;
 }
 
-/* HERO SECTION */
-.hero {
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.hero h2 {
-    font-weight: 900;
-    font-size: 2.5rem;
-    color: var(--negro);
-    margin-bottom: 1rem;
-}
-
-.tagline {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.subtagline {
-    font-style: italic;
-}
 
 /* estilos index */
-body.home {
-    background: url('../img/bg-home.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--blanco);
-}
-
 body.home .hero h2,
 body.home .tagline,
 body.home .subtagline {
-    color: var(--blanco);
-    text-shadow: 1px 1px 2px var(--negro);
+    color: black;
+    .linea-puntos {
+        border-bottom: 3px dotted #000;
+        padding-bottom: 10px;
+    };
+}
+body.home {
+    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+    background-image: url('../imagenes/bg-home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #222;
+    height: 100%;
 }
 
 /* FOOTER */
@@ -134,21 +140,29 @@ footer {
     border-top: 2px solid var(--ocre);
     background-color: var(--beis);
     margin-top: 2rem;
+    text-align: center; 
 }
 
+/* navegacion del footer*/
 .footer-nav {
     display: flex;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center;     /* Centra verticalmente si hay múltiples líneas */
     gap: 1.5rem;
     list-style: none;
-    margin-top: 1rem;
+    margin: 1rem auto 0;    /* auto en laterales para centrar el contenedor */
+    padding: 0;             /* Elimina padding predeterminado */
+    max-width: max-content; /* Evita que ocupe el 100% del ancho */
 }
 
+/* Enlaces*/
 .footer-nav a {
     color: var(--negro);
     text-decoration: none;
     position: relative;
 }
 
+/* responsive */
 .footer-nav a::after {
     content: "";
     position: absolute;
@@ -157,6 +171,12 @@ footer {
     width: 100%;
     height: 1px;
     background-color: var(--ocre);
+    transform: scaleX(0); 
+    transition: transform 0.3s ease;
+}
+
+.footer-nav a:hover::after {
+    transform: scaleX(1); /* Animación */
 }
 
 .footer-nav a:hover {
@@ -165,6 +185,8 @@ footer {
 
 .credits {
     font-size: 0.9rem;
+    margin: 1rem auto 0; /* xa centrar*/
+    display: block;      
 }
 
 /* Estilos Nosotros */
@@ -176,7 +198,7 @@ footer {
 }
 
 .subtitle {
-    font-style: italic;
+    font-style:sans serif ;
     margin-bottom: 2rem;
     color: var(--negro);
 }
@@ -328,14 +350,15 @@ th, td {
 }
 
 th {
-    background-color: var(--negro);
-    color: var(--blanco);
+    background-color: var(--beis);
+    color: black;
     font-weight: 700;
+    text-align: center;
 }
 
 .sessions {
-    background-color: var(--negro);
-    color: var(--blanco);
+    background-color: var(--beis);
+    color: black;
     font-weight: 700;
     text-align: center;
 }
@@ -411,9 +434,7 @@ input:valid {
     border-color: #4caf50;
 }
 
-
-/* ESTILOS PÁGINA NOSOTROS */
-/* Estructura principal */
+/* ESTILO NOSOTROS */
 .about-article {
     max-width: 800px;
     margin: 0 auto;
@@ -428,16 +449,10 @@ input:valid {
     margin-bottom: 0.5rem;
 }
 
-.article-subtitle {
-    font-style: italic;
-    color: var(--negro);
-    margin-bottom: 2rem;
-}
-
 .section-title {
     font-weight: 900;
-    color: var(--naranja);
-    margin: 2rem 0 1rem;
+    color: black;
+    text-align: left;
     font-size: 1.8rem;
 }
 
@@ -558,13 +573,15 @@ input:valid {
     margin: 1.5rem 0;
 }
 
-/*intento para el h2 de las páginas*/
+/*secciones*/
 h2 {
     position: relative;
     text-align: center;
     font-size: 2em;
     margin: 2rem 0;
-    padding: 1rem 0;
+    padding: 2rem 0;
+    color: rgb(233, 164, 0);
+    margin-bottom: 0;
   }
   
   h2::before,
@@ -585,85 +602,43 @@ h2 {
   h2::after {
     bottom: 0;
   }
-h2 {
-  position: relative;
-  text-align: center;
-  font-size: 2em;
-  margin: 2rem 0;
-  padding: 1rem 0;
-}
-
-h2::before,
-h2::after {
-  content: "";
-  display: block;
-  height: 4px;
-  background-color: var(--naranja);
-  width: 100%;
-  position: absolute;
-  left: 0;
-}
-
-h2::before {
-  top: 0;
-}
-
-h2::after {
-  bottom: 0;
-}
- h2 {
-  position: relative;
-  text-align: center;
-  font-size: 2em;
-  margin: 2rem 0;
-  padding: 1rem 0;
-}
-
-h2::before,
-h2::after {
-  content: "";
-  display: block;
-  height: 4px;
-  background-color: var(--naranja); 
-  width: 100%;
-  position: absolute;
-  left: 0;
-}
-
-h2::before {
-  top: 0;
-}
-
-h2::after {
-  bottom: 0;
-}
-
-h2 {
-    position: relative;
+  h1, h2, h3 {
     text-align: center;
-    font-size: 2em;
-    margin: 2rem 0;
-    padding: 1rem 0;
-  }
-  
-  h2::before,
-  h2::after {
-    content: "";
-    display: block;
-    height: 4px;
-    background-color: var(--naranja); 
     width: 100%;
-    position: absolute;
-    left: 0;
-  }
+}
   
-  h2::before {
-    top: 0;
-  }
-  
-  h2::after {
-    bottom: 0;
-  }
-  
- 
-  
+h3 {
+    font-style: normal;
+    text-align: left;
+    padding-bottom: 10px;
+   
+}
+/* HERO SECTION */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: rgb(233, 164, 0);
+    margin-bottom: 1rem;
+
+    /* Estilo para el título "Cine y letras" */
+    display: inline-block;          /*línea ajuste al ancho del texto */
+    border-bottom: 3px dotted #000; /* linea puntos negros */
+    padding-bottom: 15px;            /*espacio entre texto y línea */
+    margin-bottom: 10px;            /*separación con el párrafo siguiente */
+
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtagline {
+    font-style: fira sans;
+}
+
